@@ -1,0 +1,37 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\GPS\Embedded-Systems-Project\Project\SRC\project.uvproj
+Project File Date:  05/02/2024
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling startup_TM4C123.s...
+startup_TM4C123.s(233): error: A1137E: Unexpected characters at end of line
+startup_TM4C123.s(235): error: A1137E: Unexpected characters at end of line
+startup_TM4C123.s(236): error: A1137E: Unexpected characters at end of line
+compiling main.c...
+../includes/GPIO.h(18): warning:  #1295-D: Deprecated declaration GPIO_initPortB - give arg types
+   void GPIO_initPortB();
+../includes/GPIO.h(31): warning:  #1-D: last line of file ends without a newline
+   void GPIO_setSevenSegment (unsigned char valueOfSevenSegment);
+main.c(5): warning:  #1295-D: Deprecated declaration IsButtonPressed - give arg types
+  int IsButtonPressed() ; 
+main.c(6): warning:  #1295-D: Deprecated declaration Init_UART - give arg types
+  void Init_UART() ; 
+main.c(7): warning:  #1295-D: Deprecated declaration Init_PortF - give arg types
+  void Init_PortF() ; 
+main.c(16): error:  #268: declaration may not appear after executable statement in block
+        int distance =0 ; 
+main.c(29): warning:  #1-D: last line of file ends without a newline
+  }
+main.c(16): warning:  #177-D: variable "distance" was declared but never referenced
+        int distance =0 ; 
+main.c: 7 warnings, 1 error
+".\project.axf" - 4 Error(s), 7 Warning(s).
+Target not created
+</pre>
+</body>
+</html>
