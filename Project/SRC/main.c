@@ -2,27 +2,28 @@
 #include "../includes/GPIO.h"
 
 
-int IsButtonPressed() ; 
-void Init_UART() ; 
+int IsButtonPressed() ;
+void Init_UART() ;
 
 
- 
- 
-int main () 
+
+
+int main ()
 {
   Init_UART () ;
-	Init_PortF () ; 
-	int distance =0 ; 
-	
-	// some code 
-	
-	while(1) 
+	Init_PortF () ;
+	int distance =0 ;
+
+	// some code
+	//bnt3lm github
+
+	while(1)
 	{
 		// some code
-		if( IsButtonPressed() ) 
-			break ; 
-	
+		if( IsButtonPressed() )
+			break ;
+
 	}
 
-return 0 ; 
+return 0 ;
 }
