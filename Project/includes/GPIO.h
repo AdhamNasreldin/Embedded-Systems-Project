@@ -5,6 +5,6 @@
 
 
  
-void Init_PortF ();
+void Init_PortF (void);
 unsigned char readSwitch(int x);
 void setLEDs(unsigned char data);

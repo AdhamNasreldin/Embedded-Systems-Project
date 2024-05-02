@@ -1,5 +1,5 @@
 #include "../includes/GPIO.h"
-void GPIO_initPortF (void) {
+void Init_PortF (void) {
 SYSCTL_RCGCGPIO_R |= 0x20;
 while( (SYSCTL_PRGPIO_R & 0x20)==0);
 GPIO_PORTF_LOCK_R = GPIO_LOCK_KEY;
@@ -15,7 +15,7 @@ GPIO_PORTF_DATA_R &=~ 0x0E;
 unsigned char readSwitch(int x) {
 if(x==0)
 return GPIO_PORTF_DATA_R & 0x01;                                                     
- else if (x==1)
+ else // if (x==1)
  return GPIO_PORTF_DATA_R & 0x10; 
 }  
 
