@@ -4,7 +4,7 @@
 #define GPIO_SW_NOT_PRESSED 1
 
 
- 
+void PC_UAR2_init();
 void Init_PortF (void);
 unsigned char readSwitch(int x);
 void setLEDs(unsigned char data);

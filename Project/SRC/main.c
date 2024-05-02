@@ -23,3 +23,14 @@ int main ()
 return 0 ;
 	
 }
+void PC_UAR2_init(){
+	// here we use UART2 for PORTD
+	SYSCTL_RCGCUART_R 	|=0X04;
+	SYSCTL_RCGCGPIO_R  	|=0X08;
+		
+	// here there is no difference so we use the same masks
+	
+	UART2_CTL_R 				=0X0070;			
+	UART2_LCRH_R 				=0x0301;
+	
+}
