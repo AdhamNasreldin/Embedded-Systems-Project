@@ -1,43 +1,83 @@
-# include "tm4c123gh6pm.h"
-#include "../includes/GPIO.h"
 
+#include "../includes/GPIO.h"
+#include "../includes/UART.h"
+#include "tm4c123gh6pm.h"
+#include "../includes/Delay.h"
+#include "../includes/GPS.h"
 # define Red_Led 0X02
 # define Blue_Led 0x04
 # define  Green_Led 0x08
 
 
 // int IsButtonPressed() ;
-void Init_UART(void) ;
+
 
 
 
 
 int main ()
-{
-  // Init_UART () ;
-	Init_PortF () ;
-	setLEDs (Red_Led);
-	setLEDs (Green_Led) ;
-	setLEDs (Blue_Led) ; 
+{char *point_command = "";
+	char *point = "";
+	char *trajectory = "";
+	char *previous_point = "";
+	double total_distance;
+	const int len = 10000;
+	char start_point_command[50] = "";
+	char start_point[30] = "";
+	char command[len] = {0};
+	UART1_init();
+	implement_GPS_fix();
+	systick_init();
+	UART2_init();
+
+	//
+	Take_instant_location(start_point_command );
+	extract_Detailed_Location_info(start_point_command  , start_point );
 	
-return 0 ;
+
+	strcpy(previous_point , start_point);
+	total_distance = 0;
 	
-}
-void PC_UAR2_init(){
-	// here we use UART2 for PORTD
-	SYSCTL_RCGCUART_R 	|=0X04;
-	SYSCTL_RCGCGPIO_R  	|=0X08;
+	while(1){
+		double distance;
+		double point1_lat;
+		double point1_lon;
+		double point2_lat ;
+		double point2_lon;
+		Take_instant_location(point_command );
+		extract_Detailed_Location_info(point_command  , point );
+		strcat(trajectory , point);
 		
-	// here there is no difference so we use the same masks
 	
-	UART2_CTL_R 				=0X0070;			
-	UART2_LCRH_R 				=0x0301;
-/* in PORTA UART0 was on pins 0 AND 1 SO WE USED 0X03 AS a mask 
-	but here in PORTD UART2 is on pins 6 and 7 so we use 0xC0 as a mask */
+		point1_lat = take_latitude(previous_point); 
+    point1_lon = take_longitude(previous_point);
+		
+		
+    point2_lat = take_latitude(point); 
+    point2_lon = take_longitude(point);
+		
+    // Calculate distance
+		
+    distance = haversine(point1_lat, point1_lon, point2_lat, point2_lon);
+		total_distance += distance;
+		if(total_distance >= 100) break;
+    //printf("Distance between the two points: %.2f meters\n", distance);
+		
+    strcpy(previous_point,point);
+		point_command = "";
+		point = "";
+		
+	}
+	while(1){
+	char rec=uart2_receive();
+		if(rec=='U'){
+			uart2_send_string(trajectory);
+		break;}
 	
-	GPIO_PORTD_AFSEL_R  |=0xC0;
-	GPIO_PORTD_PCTL_R		= (GPIO_PORTA_PCTL_R &0X00FFFFFF )+ 0X11000000;
-	GPIO_PORTD_DEN_R |=0XC0;
-	GPIO_PORTD_AMSEL_R &= ~0XC0;
+	}
+	
+	
+	 // Example coordinates in degrees and minutes
+  
 	
 }

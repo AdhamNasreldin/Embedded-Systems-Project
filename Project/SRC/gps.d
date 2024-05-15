@@ -1,0 +1,16 @@
+.\gps.o: GPS.c
+.\gps.o: ../includes/GPS.h
+.\gps.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\gps.o: ../includes/tm4c123gh6pm.h
+.\gps.o: C:\Keil\ARM\ARMCC\bin\..\include\String.h
+.\gps.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\gps.o: C:\Keil\ARM\ARMCC\bin\..\include\math.h
+.\gps.o: C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\gps.o: ../includes/UART.h
+.\gps.o: ../includes/GPIO.h
+.\gps.o: C:\Keil\ARM\Inc\TI\TM4C123\tm4c123gh6pm.h
+.\gps.o: C:\Keil\ARM\CMSIS\Include\core_cm4.h
+.\gps.o: C:\Keil\ARM\CMSIS\Include\core_cmInstr.h
+.\gps.o: C:\Keil\ARM\CMSIS\Include\core_cmFunc.h
+.\gps.o: C:\Keil\ARM\CMSIS\Include\core_cm4_simd.h
+.\gps.o: C:\Keil\ARM\Inc\TI\TM4C123\system_TM4C123.h

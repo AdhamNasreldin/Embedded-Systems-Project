@@ -1,16 +1,52 @@
 Dependencies for Project 'project', Target 'Target 1': (DO NOT MODIFY !)
-F (.\startup_TM4C123.s)(0x6632DE19)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123--list .\startup_tm4c123.lst --xref -o .\startup_tm4c123.o --depend .\startup_tm4c123.d)
-F (.\main.c)(0x6632E2FC)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\main.o --omf_browse .\main.crf --depend .\main.d)
-I (C:\Keil\ARM\Inc\TI\TM4C123\tm4c123gh6pm.h)(0x532C5688)
-I (C:\Keil\ARM\CMSIS\Include\core_cm4.h)(0x532C5A32)
+F (.\main.c)(0x6644EF5E)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\main.o --omf_browse .\main.crf --depend .\main.d)
+I (../includes/GPIO.h)(0x6644A1B6)
+I (../includes/tm4c123gh6pm.h)(0x663FDE3C)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C819B4)
+I (../includes/UART.h)(0x6644EFDD)
+I (C:\Keil\ARM\Inc\TI\TM4C123\tm4c123gh6pm.h)(0x663FDEF1)
+I (C:\Keil\ARM\CMSIS\Include\core_cm4.h)(0x532C5A32)
 I (C:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x532C5A32)
 I (C:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x532C5A32)
 I (C:\Keil\ARM\CMSIS\Include\core_cm4_simd.h)(0x532C5A32)
-I (C:\Keil\ARM\Inc\TI\TM4C123\system_TM4C123.h)(0x532C5688)
-I (../includes/GPIO.h)(0x6632DF06)
-I (../includes/tm4c123gh6pm.h)(0x6632CCF9)
-F (..\includes\GPIO.h)(0x6632DF06)()
-F (.\GPIO.c)(0x6632DFC6)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\gpio.o --omf_browse .\gpio.crf --depend .\gpio.d)
-I (../includes/GPIO.h)(0x6632DF06)
-I (../includes/tm4c123gh6pm.h)(0x6632CCF9)
+I (C:\Keil\ARM\Inc\TI\TM4C123\system_TM4C123.h)(0x6640053E)
+I (../includes/Delay.h)(0x6644A1DC)
+I (../includes/GPS.h)(0x6644A40A)
+I (C:\Keil\ARM\ARMCC\include\String.h)(0x51C819B4)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C819B4)
+I (C:\Keil\ARM\ARMCC\include\math.h)(0x51C819B4)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C819B4)
+F (.\GPIO.c)(0x6644A4FD)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\gpio.o --omf_browse .\gpio.crf --depend .\gpio.d)
+I (../includes/GPIO.h)(0x6644A1B6)
+I (../includes/tm4c123gh6pm.h)(0x663FDE3C)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C819B4)
+F (.\UART0.c)(0x6644EEE8)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\uart0.o --omf_browse .\uart0.crf --depend .\uart0.d)
+I (../includes/UART.h)(0x6644EFDD)
+I (../includes/tm4c123gh6pm.h)(0x663FDE3C)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C819B4)
+F (.\EEPROM.c)(0x6644A80C)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\eeprom.o --omf_browse .\eeprom.crf --depend .\eeprom.d)
+I (../includes/EEPROM.h)(0x664297CE)
+I (../includes/tm4c123gh6pm.h)(0x663FDE3C)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C819B4)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C819B4)
+F (.\Delay.c)(0x6644A444)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\delay.o --omf_browse .\delay.crf --depend .\delay.d)
+I (../includes/Delay.h)(0x6644A1DC)
+I (../includes/tm4c123gh6pm.h)(0x663FDE3C)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C819B4)
+F (.\GPS.c)(0x6644EFCC)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\gps.o --omf_browse .\gps.crf --depend .\gps.d)
+I (../includes/GPS.h)(0x6644A40A)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C819B4)
+I (../includes/tm4c123gh6pm.h)(0x663FDE3C)
+I (C:\Keil\ARM\ARMCC\include\String.h)(0x51C819B4)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C819B4)
+I (C:\Keil\ARM\ARMCC\include\math.h)(0x51C819B4)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C819B4)
+I (../includes/UART.h)(0x6644EFDD)
+I (../includes/GPIO.h)(0x6644A1B6)
+I (C:\Keil\ARM\Inc\TI\TM4C123\tm4c123gh6pm.h)(0x663FDEF1)
+I (C:\Keil\ARM\CMSIS\Include\core_cm4.h)(0x532C5A32)
+I (C:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x532C5A32)
+I (C:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x532C5A32)
+I (C:\Keil\ARM\CMSIS\Include\core_cm4_simd.h)(0x532C5A32)
+I (C:\Keil\ARM\Inc\TI\TM4C123\system_TM4C123.h)(0x6640053E)
+F (.\startup_TM4C123.s)(0x663FDCBC)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123--list .\startup_tm4c123.lst --xref -o .\startup_tm4c123.o --depend .\startup_tm4c123.d)

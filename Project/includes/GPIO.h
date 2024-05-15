@@ -1,10 +1,30 @@
 #include "tm4c123gh6pm.h"
-#define GPIO_SWL 0
-#define GPIO_SW2 1
-#define GPIO_SW_NOT_PRESSED 1
+#include "stdint.h"
+#define PF123_mask             0x0E
+#define PF04_mask               0x11
+#define PF_mask                0x20
+
+#define SET_BIT(reg,bit)    (reg |=  (1<<bit))
+#define GET_BIT(reg,bit)    ((reg>>bit)&1)
+#define CLR_BIT(reg,bit)    (reg &= ~(1<<bit))
+
+#define SET(reg,val)        reg |= val
+#define CLR(reg,val)        reg &= ~val
 
 
-void PC_UAR2_init();
-void Init_PortF (void);
-unsigned char readSwitch(int x);
-void setLEDs(unsigned char data);
+#define SW1 0
+#define SW2 1
+
+#define RED_LED 0
+#define BLUE_LED 1
+#define GREEN_LED 2
+
+#define LED_ON 1
+#define LED_OFF 0
+
+
+void portF_init(void);
+unsigned int get_switch_value(unsigned char sw);
+void set_led_value(unsigned char Color, unsigned char State);
+int is_SW1_pressed(void);
+int is_SW2_pressed(void);
