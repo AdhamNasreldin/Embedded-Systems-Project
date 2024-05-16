@@ -55,3 +55,43 @@ void lcd_init(void) {
 
 
 
+
+	void load_Time(long d)
+{
+   while(d--);
+}
+		
+	void lcd_data(unsigned char data)
+	{
+     Printdata(data);                  //pass the data in the datalines of lcd
+     GPIO_PORTB_DATA_R &= ~ 0x10 ;    //turn of the R/W pin for write operation in lcd
+     GPIO_PORTB_DATA_R |= 0x20;      //turn on the RS for writing to the data register of lcd
+     GPIO_PORTB_DATA_R |= 0x04;     //turn on the En of lcd for enabling the clock of lcd
+     load_Time(10000);                            //wait for sometime
+     GPIO_PORTB_DATA_R &=~ 0x04;             //Turn off the En of lcd		
+	
+	}
+	
+	
+	
+  void lcd_command(unsigned char cmd){
+	   
+		 Printdata(cmd);                  //pass the 8bit data in the datalines of lcd
+     GPIO_PORTB_DATA_R &= ~ 0x10 ;    //turn off the R/W pin for write operation in lcd
+     GPIO_PORTB_DATA_R &= ~ 0x20;     //turn off the RS for writing to the instruction register of lcd
+     GPIO_PORTB_DATA_R |= 0x04;       //turn on the En of lcd for enabling the clock of lcd
+     load_Time(10000);                    //wait for sometime
+     GPIO_PORTB_DATA_R &=~ 0x04;      //Turn off the En of lcd		
+		
+  }
+	
+	
+	void lcd_string_Input(unsigned char *str ,unsigned char len){
+	
+unsigned char i;
+	  for (i=0;i<len;i++){
+		lcd_data(str[i]);
+		}
+	}
+	
+	
