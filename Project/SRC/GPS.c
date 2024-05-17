@@ -71,26 +71,24 @@ double haversine(double lat1, double lon1, double lat2, double lon2) {
 }
 void extract_Detailed_Location_info(char Location[] , char detailed_location[]){
 		const char delimitar[] = ",";
-	
-		const char Point_start_and_end[] = "#";
+
+		const char Point_start_and_end[] = "\n";
 		const char seperator[] = ",";
-	
+
 		char *token = strtok(Location,  delimitar);
 		int field_index = 0;
 		while (token != NULL) {
-					
-					if (field_index ==3  ) { //latitude
-						strcat(detailed_location, Point_start_and_end );
+
+					if (field_index == 3  ) { //latitude
 						strcat(detailed_location, token );
 					}
-					
-					if (field_index ==5  ) { //longitude
+
+					if (field_index == 5  ) { //longitude
 						strcat(detailed_location,seperator );
 						strcat(detailed_location, token );
 						strcat(detailed_location, Point_start_and_end );
 					}
-						
-					
+
 					token = strtok(NULL, delimitar);
 					field_index++;
 			}
@@ -100,20 +98,22 @@ void extract_Detailed_Location_info(char Location[] , char detailed_location[]){
 
 //-------------------------------------//
 
-void Take_instant_location(char *point){
-	
-	int len = 10000;
-	char log_command[50] = "";
+void Take_instant_location(char result_point[]){
+
+
 	while(1){
-		
+        char point[1000];
+        int len = 10000;
+        char log_command[50];
 		Parse_GPS_command(point , len , log_command);
-		if( (strcmp(log_command,"GPRMC") == 0)){
+
+		if( (strcmp(log_command,"$GPRMC") == 0)){
+            strcpy(result_point , point);
 			break;
-		}			
-		point = "";
-		strcpy(log_command , "");
+		}
+
 	}
-	
+
 }
 
 //-------------------------------------//
