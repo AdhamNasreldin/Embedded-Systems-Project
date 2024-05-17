@@ -416,11 +416,6 @@
               <FilePath>.\GPIO.c</FilePath>
             </File>
             <File>
-              <FileName>green led.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\green led.c</FilePath>
-            </File>
-            <File>
               <FileName>UART0.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\UART0.c</FilePath>
@@ -439,6 +434,11 @@
               <FileName>GPS.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\GPS.c</FilePath>
+            </File>
+            <File>
+              <FileName>startup_TM4C123.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\startup_TM4C123.s</FilePath>
             </File>
           </Files>
         </Group>

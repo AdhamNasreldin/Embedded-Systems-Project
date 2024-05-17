@@ -13,71 +13,61 @@
 
 
 
+int main() {
+    char first_point_command[100] = {0};
+    char previous_point[100] = {0};
+    char first_point[100] = {0};
+
+    //get_NMEAdata();
+    implement_GPS_fix();
+
+    double total_distance = 0;
+
+    Take_instant_location(first_point_command);
+    extract_Detailed_Location_info(first_point_command, first_point);
+    //char command3[1000] = {0};
+    strcpy(previous_point ,first_point);
 
 
-int main ()
-{char *point_command = "";
-	char *point = "";
-	char *trajectory = "";
-	char *previous_point = "";
-	double total_distance;
-	const int len = 10000;
-	char start_point_command[50] = "";
-	char start_point[30] = "";
-	char command[len] = {0};
-	UART1_init();
-	implement_GPS_fix();
-	systick_init();
-	UART2_init();
 
-	//
-	Take_instant_location(start_point_command );
-	extract_Detailed_Location_info(start_point_command  , start_point );
-	
+   // Take_instant_location(command3);
+    //extract_Detailed_Location_info(command3, command4);
 
-	strcpy(previous_point , start_point);
-	total_distance = 0;
-	
-	while(1){
-		double distance;
-		double point1_lat;
-		double point1_lon;
-		double point2_lat ;
-		double point2_lon;
-		Take_instant_location(point_command );
-		extract_Detailed_Location_info(point_command  , point );
-		strcat(trajectory , point);
-		
-	
-		point1_lat = take_latitude(previous_point); 
-    point1_lon = take_longitude(previous_point);
-		
-		
-    point2_lat = take_latitude(point); 
-    point2_lon = take_longitude(point);
-		
-    // Calculate distance
-		
-    distance = haversine(point1_lat, point1_lon, point2_lat, point2_lon);
-		total_distance += distance;
-		if(total_distance >= 100) break;
-    //printf("Distance between the two points: %.2f meters\n", distance);
-		
-    strcpy(previous_point,point);
-		point_command = "";
-		point = "";
-		
-	}
-	while(1){
-	char rec=uart2_receive();
-		if(rec=='U'){
-			uart2_send_string(trajectory);
-		break;}
-	
-	}
-	
-	
-	 // Example coordinates in degrees and minutes
-  
-	
+    while(1){
+
+    char current_point_command[100] = {0};
+    char current_point[100] = {0};
+
+    double long1, lat1, long2, lat2, distance;
+
+    // Get the first location
+    Take_instant_location(current_point_command);
+    extract_Detailed_Location_info(current_point_command, current_point);
+    //filter_point(command2);
+    printf("Current Point: %s", current_point);
+   // printf(command2);
+    long1 = take_longitude(previous_point);
+    lat1 = take_latitude(previous_point);
+
+    // Get the second location
+
+    //filter_point(command4);
+   // printf("Second Point: %s\n", command4);
+    long2 = take_longitude(current_point);
+    lat2 = take_latitude(current_point);
+    strcpy(previous_point , current_point);
+    // Calculate the distance between the two points
+    distance = haversine(lat1, long1, lat2, long2);
+    total_distance+=distance;
+
+
+    //if(total_distance > 100) break;
+    printf("\n");
+    printf("Distance moved: %f", total_distance);
+    printf("\n");
+
+    }
+
+
+
 }
