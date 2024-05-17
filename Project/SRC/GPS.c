@@ -8,15 +8,18 @@
 #include <stdlib.h>
 
 double take_longitude(char point[]){
-	char longitude_str[16] = "";
-	char degrees_str[16] = "";
-	char minutes_str[16] = "";
+	char longitude_str[16] = {0};
+	char degrees_str[16] = {0};
+	char minutes_str[16] = {0};
 	double longitude;
-	strncpy(longitude_str  , point + 1 , 8);
-	
+	strncpy(longitude_str  , point  , 8);
+
+    longitude_str[8]='\0';
 
 	strncpy(degrees_str , longitude_str , 2);
+	degrees_str[2] = '\0';
 	strncpy(minutes_str , longitude_str +2 , 7);
+    minutes_str[7] = '\0';
 
 	longitude = strtod(degrees_str,NULL) + strtod(minutes_str , NULL) / 60 ;
 	return longitude;
@@ -29,12 +32,13 @@ double take_latitude(char point[]){
 	char degrees_str[16] = "";
 	char minutes_str[16] = "";
 	double latitude ;
-	strncpy(latitude_str  , point +10 , 9);
-	
+	strncpy(latitude_str  , point + 9 , 9);
+    latitude_str[9] = '\0';
 
-	strncpy(degrees_str , latitude_str , 2);
-	strncpy(minutes_str , latitude_str +2 , 7);
-
+	strncpy(degrees_str , latitude_str , 3);
+	degrees_str[3] = '\0';
+	strncpy(minutes_str , latitude_str + 3 , 6);
+    minutes_str[6] = '\0';
 	latitude = strtod(degrees_str,NULL) + strtod(minutes_str , NULL) / 60 ;
 	return latitude;
 
@@ -42,7 +46,8 @@ double take_latitude(char point[]){
 
 //-------------------------------------//
 
-
+#define R 6378137 // Radius of the Earth in meters
+#define M_PI 3.14159265358979323846
 double toRadians(double degree) {
     return degree * M_PI / 180.0;
 }
@@ -54,19 +59,19 @@ double haversine(double lat1, double lon1, double lat2, double lon2) {
 		double c;
 		double distance;
   // Convert degrees to radians
-	
+
     lat1 = toRadians(lat1);
     lon1 = toRadians(lon1);
     lat2 = toRadians(lat2);
     lon2 = toRadians(lon2);
-    
+
     // Haversine formula
      dlat = lat2 - lat1;
      dlon = lon2 - lon1;
      a = sin(dlat / 2) * sin(dlat / 2) + cos(lat1) * cos(lat2) * sin(dlon / 2) * sin(dlon / 2);
      c = 2 * atan2(sqrt(a), sqrt(1 - a));
      distance = R * c;
-    
+
     return distance;
 }
 void extract_Detailed_Location_info(char Location[] , char detailed_location[]){

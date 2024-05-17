@@ -183,10 +183,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>2</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>53</TopLine>
-      <CurrentLine>78</CurrentLine>
+      <TopLine>2</TopLine>
+      <CurrentLine>14</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -217,7 +217,7 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>46</TopLine>
+      <TopLine>83</TopLine>
       <CurrentLine>98</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\UART0.c</PathWithFileName>
@@ -263,10 +263,10 @@
       <FileType>1</FileType>
       <tvExp>1</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>1</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>21</TopLine>
-      <CurrentLine>185</CurrentLine>
+      <TopLine>46</TopLine>
+      <CurrentLine>76</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\GPS.c</PathWithFileName>
       <FilenameWithoutPath>GPS.c</FilenameWithoutPath>
