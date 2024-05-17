@@ -8,5 +8,5 @@ void uart2_receive_string(char * string, uint32_t len);
 unsigned char read_UART1(void);
 void UART1_init(void);
 void write_UART1(unsigned char data);
-
+void UART_OutString(char *chs);void getCommand(char *command , int len , char start , char end);void write_UART2(char data);char read_UART2();void uart2_init();
 
