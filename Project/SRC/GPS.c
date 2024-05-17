@@ -120,18 +120,17 @@ void Take_instant_location(char *point){
 
 void implement_GPS_fix(){
 	int len = 10000;
-	char point[50] = "";
-	char log_command[50] = "";
+
 	while(1){
+        char point[50] ;
+        char log_command[50];
 		Parse_GPS_command(point , len , log_command);
-		if( (strcmp(log_command,"GPRMC") == 0) && check_GPS_FIX(point) ){
+		if( (strcmp(log_command,"$GPRMC") == 0) && check_GPS_FIX(point) ){
 			break;
-		}			
-		
-		strcpy(point , "" );
-		strcpy(log_command , "" );
+		}
+
 	}
-	
+
 }
 
 
@@ -142,7 +141,7 @@ int check_GPS_FIX(char *chs){
 	int field_index = 0;
 	 while (token != NULL) {
 					if (field_index == 2) { // The Fix Quality field is typically the 7th field in a GGA sentence
-						if(strcmp(token, "A") == 0){                                                                                                 
+						if(strcmp(token, "A") == 0){
 							return 1; // Convert the token to integer and return as Fix Quality
 						}
 						break;
@@ -151,14 +150,18 @@ int check_GPS_FIX(char *chs){
 					field_index++;
 			}
 	return 0;
-			
+
 }
 
 void Parse_GPS_command(char *chs , int len,char log_Name[]){
 		getCommand(chs,len,'$','*');
-		strncpy(log_Name , chs , 5);
-		
+		strncpy(log_Name , chs , 6);
+
 }
+
+
+
+//-------------------------------------//
 void getCommand(char *command , int len , char start , char end){
 	//
 	char character;
